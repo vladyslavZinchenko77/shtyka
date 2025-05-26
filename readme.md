@@ -6,9 +6,9 @@
 
 For development, you need to open two terminals:
 
-`npm run dev:css` — compiles Tailwind CSS and keeps track of changes
-
 `shopify theme dev` — launches a local Shopify server with automatic page refresh
+
+`npm run dev:css` — compiles Tailwind CSS and keeps track of changes
 
 This will install tailwindcss and @tailwindcss/cli, which are specified in devDependencies
 
