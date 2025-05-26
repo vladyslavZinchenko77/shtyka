@@ -10,7 +10,7 @@ For development, you need to open two terminals:
 
 `shopify theme dev` — launches a local Shopify server with automatic page refresh
 
-# This will install tailwindcss and @tailwindcss/cli, which are specified in devDependencies
+This will install tailwindcss and @tailwindcss/cli, which are specified in devDependencies
 
 ### ⚙️ Scripts
 
