@@ -16,10 +16,10 @@
 </div>
   <div class="flex items-center space-x-4">
       <a href="{{ routes.account_url }}" class="relative text-gray-200 hover:text-white">
-        {{ 'icon-account.svg' | inline_asset_content }}
+         {% render 'icon', type: 'user' %}
       </a>
     <a href="{{ routes.cart_url }}" class="relative text-gray-200 hover:text-white">
-      {{ 'icon-cart.svg' | inline_asset_content }}
+       {% render 'icon', type: 'cart' %}
     </a>
   </div>
 </header>
