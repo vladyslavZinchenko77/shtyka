@@ -1,0 +1,125 @@
+<div class='py-12 md:py-16'>
+  <div class='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+    {% if section.settings.title != blank %}
+      <h2 class='text-lg sm:text-2xl font-semibold text-gray-800 mb-4 text-center'>
+        {{ section.settings.title }}
+      </h2>
+    {% endif %}
+
+    <div class='flex  flex-col md:flex-row justify-center items-center gap-6'>
+      {% comment %} {# For Guys Link #} {% endcomment %}
+      <a
+        href='{{ section.settings.guys_link }}'
+        class='relative group block w-full md:w-1/2 overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105'
+      >
+        {% if section.settings.guys_image != blank %}
+          <img
+            src='{{ section.settings.guys_image | image_url: width: 800 }}'
+            alt='{{ section.settings.guys_button_text }}'
+            loading='lazy'
+            width='800'
+            height='450'
+            class='w-full h-auto object-cover'
+          >
+        {% else %}
+          {% comment %} {# Placeholder image if no image is uploaded #} {% endcomment %}
+          <div class='w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-lg'>No Image</div>
+        {% endif %}
+
+        <div class='absolute left-[10%] bottom-[10%] bg-black px-4 py-2 rounded-md'>
+          <span class='text-white text-sm sm:text-base font-semibold uppercase tracking-wide group-hover:text-gray-300 transition-colors duration-300'>
+            {{- section.settings.guys_button_text -}}
+          </span>
+        </div>
+      </a>
+
+      {% comment %} {# For Girls Link #} {% endcomment %}
+      <a
+        href='{{ section.settings.girls_link }}'
+        class='relative group block w-full md:w-1/2 overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105'
+      >
+        {% if section.settings.girls_image != blank %}
+          <img
+            src='{{ section.settings.girls_image | image_url: width: 800 }}'
+            alt='{{ section.settings.girls_button_text }}'
+            loading='lazy'
+            width='800'
+            height='450'
+            class='w-full h-auto object-cover'
+          >
+        {% else %}
+          {% comment %} {# Placeholder image if no image is uploaded #} {% endcomment %}
+          <div class='w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-lg'>No Image</div>
+        {% endif %}
+
+        <div class='absolute left-[10%] bottom-[10%] bg-black px-4 py-2 rounded-md'>
+          <span class='text-white text-sm sm:text-base font-semibold uppercase tracking-wide group-hover:text-gray-300 transition-colors duration-300'>
+            {{ section.settings.girls_button_text }}
+          </span>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "SELECT A SECTION",
+  "tag": "section",
+  "class": "section-gender-selection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section heading",
+      "default": "SELECT A SECTION"
+    },
+    {
+      "type": "header",
+      "content": "For guys"
+    },
+    {
+      "type": "image_picker",
+      "id": "guys_image",
+      "label": "Images for guys"
+    },
+    {
+      "type": "text",
+      "id": "guys_button_text",
+      "label": "Button text for guys",
+      "default": "FOR GUYS"
+    },
+    {
+      "type": "url",
+      "id": "guys_link",
+      "label": "Links for guys"
+    },
+    {
+      "type": "header",
+      "content": "For girls"
+    },
+    {
+      "type": "image_picker",
+      "id": "girls_image",
+      "label": "Images for girls"
+    },
+    {
+      "type": "text",
+      "id": "girls_button_text",
+      "label": "Button text for girls",
+      "default": "FOR GIRLS"
+    },
+    {
+      "type": "url",
+      "id": "girls_link",
+      "label": "Links for girls"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Selecting a section (Gender)",
+      "category": "Shop"
+    }
+  ]
+}
+{% endschema %}
