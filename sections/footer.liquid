@@ -18,7 +18,7 @@
           </nav>
         {% endif %}
       </div>
-      {% comment %} {# Column 2: Інформація (Information) #} {% endcomment %}
+      {% comment %} {# Column 2: Information #} {% endcomment %}
       <div>
         <h3 class='text-sm font-semibold uppercase mb-4 text-gray-800'>Information</h3>
 
@@ -80,19 +80,39 @@
         <h3 class='text-sm  text-center font-semibold uppercase mb-4 text-gray-800'>Social networks</h3>
         <div class='w-full flex justify-center'>
           <div class='flex items-center gap-8 mb-6'>
-            <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'>
+            <a
+              href='{{ section.settings.instagram_url }}'
+              target='_blank'
+              rel='noopener'
+              class='text-gray-600 hover:text-gray-900'
+            >
               {% render 'icon', type: 'instagram', class: 'text-blue-500 w-4 h-4' %}
             </a>
 
-            <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'>
+            <a
+              href='{{section.settings.facebook_url}}'
+              target='_blank'
+              rel='noopener'
+              class='text-gray-600 hover:text-gray-900'
+            >
               {% render 'icon', type: 'facebook', class: 'text-blue-500 w-4 h-4' %}
             </a>
 
-            <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'>
+            <a
+              href='{{section.settings.telegram_url}}'
+              target='_blank'
+              rel='noopener'
+              class='text-gray-600 hover:text-gray-900'
+            >
               {% render 'icon', type: 'telegram', class: 'text-blue-500 w-4 h-4' %}
             </a>
 
-            <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'>
+            <a
+              href='{{section.settings.youtube_url}}'
+              target='_blank'
+              rel='noopener'
+              class='text-gray-600 hover:text-gray-900'
+            >
               {%- render 'icon', type: 'youtube', class: 'text-blue-500 w-4 h-4' -%}
             </a>
           </div>
