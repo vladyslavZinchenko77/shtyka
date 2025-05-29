@@ -1,56 +1,205 @@
-<footer>
-  <div class="footer__copyright">
-    &copy;
-    {{ 'now' | date: '%Y' }}
-    {{ shop.name | link_to: routes.root_url }}, {{ powered_by_link }}
-  </div>
+<footer class='bg-gray-100 text-gray-800 py-10'>
+  <div class='container mx-auto px-4'>
+    <div class='grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 pb-8 border-b border-gray-300 mb-8'>
+      {% comment %} {# Column 1: Catalog #} {% endcomment %}
+      <div>
+        <h3 class='text-sm font-semibold uppercase mb-4 text-gray-800'>Catalog</h3>
+        {% if section.settings.catalog_menu != blank %}
+          <nav>
+            <ul class='space-y-2'>
+              {% for link in linklists[section.settings.catalog_menu].links %}
+                <li>
+                  <a href='{{ link.url }}' class='text-gray-600 hover:text-gray-900 text-sm'>
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% endif %}
+      </div>
+      {% comment %} {# Column 2: Інформація (Information) #} {% endcomment %}
+      <div>
+        <h3 class='text-sm font-semibold uppercase mb-4 text-gray-800'>Information</h3>
 
-  <div class="footer__links">
-    {% for link in section.settings.menu.links %}
-      {{ link.title | link_to: link.url }}
-    {% endfor %}
-  </div>
+        {% comment %} TODO: Made this links nohardcode  {% endcomment %}
+        <nav>
+          <ul class='space-y-2'>
+            <li>
+              <a href='/' class='text-gray-600 hover:text-gray-900 text-sm'>Shops</a>
+            </li>
+            <li>
+              <a href='/' class='text-gray-600 hover:text-gray-900 text-sm'>About us</a>
+            </li>
+            <li>
+              <a href='/' class='text-gray-600 hover:text-gray-900 text-sm'>Delivery, payment, returns</a>
+            </li>
+            <li>
+              <a href='/' class='text-gray-600 hover:text-gray-900 text-sm'> News and reviews</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
-  <div class="footer__payment">
-    {% if section.settings.show_payment_icons %}
-      {% for type in shop.enabled_payment_types %}
-        {{ type | payment_type_svg_tag }}
-      {% endfor %}
-    {% endif %}
+      {% comment %} {# Column 3:  (Partnership & Payment Methods #} {% endcomment %}
+      <div>
+        <h3 class='text-sm font-semibold uppercase mb-4 text-gray-800'>Partnership</h3>
+        <nav>
+          <ul class='space-y-2'>
+            <li>
+              <a href='/' class='text-gray-600 hover:text-gray-900 text-sm'>Cooperation</a>
+            </li>
+            <li>
+              <a
+                href='/'
+                class='text-gray-600 hover:text-gray-900 text-sm'
+              >
+                Public offer agreement
+              </a>
+            </li>
+            <li>
+              <a href='/' class='text-gray-600 hover:text-gray-900 text-sm'> Privacy policy </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class='mt-6 flex items-center gap-2'>
+          <img
+            src='{{ 'mastercard_visa.png' | asset_url }}'
+            alt='Mastercard'
+            class='h-6 object-contain'
+            width='110px'
+            height='38px'
+          >
+        </div>
+      </div>
+
+      {% comment %} {# Column 4: Соціальні мережі (Social Media) & Apps & Newsletter #} {% endcomment %}
+
+      <div>
+        <h3 class='text-sm font-semibold uppercase mb-4 text-gray-800'>Social networks</h3>
+
+        <div class='flex items-center gap-3 mb-6'>
+          <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'>
+            {% comment %} {% render 'icon-instagram' %} {% endcomment %}
+          </a>
+
+          <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'>
+            {% comment %} {% render 'icon-facebook' %} {% endcomment %}
+          </a>
+
+          <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'>
+            {% comment %} {% render 'icon-telegram' %} {% endcomment %}
+          </a>
+
+          <a href='/' target='_blank' rel='noopener' class='text-gray-600 hover:text-gray-900'> </a>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} {# Copyright section #} {% endcomment %}
+    <div class='text-center text-gray-500 text-xs'>
+      <div class='w-16 h-1 bg-gray-400 mx-auto mb-4'></div>
+      &copy; 2013 - {{ 'now' | date: '%Y' }}
+      {{ shop.name }}
+    </div>
   </div>
 </footer>
 
-{% stylesheet %}
-  footer {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2rem;
-  }
-  footer a {
-    text-decoration: none;
-    color: var(--color-foreground);
-  }
-  footer .footer__links,
-  footer .footer__payment {
-    display: flex;
-    gap: 1rem;
-  }
-{% endstylesheet %}
-
 {% schema %}
 {
-  "name": "t:general.footer",
+  "name": "Footer",
   "settings": [
     {
+      "type": "header",
+      "content": "Navigation menus"
+    },
+    {
       "type": "link_list",
-      "id": "menu",
-      "label": "t:labels.menu"
+      "id": "catalog_menu",
+      "label": "Catalogue menu",
+      "default": "footer"
+    },
+    {
+      "type": "link_list",
+      "id": "info_menu",
+      "label": "Menu Info",
+      "default": "footer"
+    },
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram link"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook link"
+    },
+    {
+      "type": "url",
+      "id": "telegram_url",
+      "label": "Telegram link"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube link"
+    },
+    {
+      "type": "header",
+      "content": "Mobile apps"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_app_links",
+      "label": "Mobile apps visible",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "google_play_url",
+      "label": "Google Play Store link"
+    },
+    {
+      "type": "url",
+      "id": "app_store_url",
+      "label": "Apple App Store link"
+    },
+    {
+      "type": "header",
+      "content": "Payment and Subscription"
     },
     {
       "type": "checkbox",
       "id": "show_payment_icons",
-      "label": "t:labels.show_payment_icons",
+      "label": "Show payment icons",
       "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "mastercard_icon",
+      "label": "Mastercard icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "visa_icon",
+      "label": "Visa icon"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter_link",
+      "label": "Show subscription link",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer"
     }
   ]
 }
