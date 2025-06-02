@@ -9,13 +9,24 @@
  */
 {
   "sections": {
+    "hero": {
+      "type": "hero-home",
+      "settings": {
+        "title": "SELECT A SECTION",
+        "guys_image": "shopify://shop_images/pexels-azahel-calzada-de-la-luz-1967153058-32317060.jpg",
+        "guys_button_text": "FOR GUYS",
+        "guys_link": "",
+        "girls_button_text": "FOR GIRLS",
+        "girls_link": ""
+      }
+    },
     "main": {
       "type": "hello-world",
       "settings": {}
-    },
-    "hero": {
-      "type": "hero-home"
     }
   },
-  "order": ["hero", "main"]
+  "order": [
+    "hero",
+    "main"
+  ]
 }
