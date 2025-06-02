@@ -10,7 +10,7 @@
       {% comment %} {# For Guys Link #} {% endcomment %}
       <a
         href='{{ section.settings.guys_link }}'
-        class='relative group block w-full md:w-1/2 overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105'
+        class='relative group block w-full md:w-1/2 overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 **h-80**'
       >
         {% if section.settings.guys_image != blank %}
           <img
@@ -19,24 +19,24 @@
             loading='lazy'
             width='800'
             height='450'
-            class='w-full h-auto object-cover'
+            class='w-full **h-full** object-cover'
           >
         {% else %}
-          {% comment %} {# Placeholder image if no image is uploaded #} {% endcomment %}
-          <div class='w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-lg'>No Image</div>
+          <div class='w-full **h-full** bg-gray-200 flex items-center justify-center text-gray-500 text-lg'>
+            No Image
+          </div>
         {% endif %}
 
-        <div class='absolute left-[10%] bottom-[10%] bg-black px-4 py-2 rounded-md'>
+        <div class='absolute left-[10%] bottom-[10%] bg-black px-4 py-2'>
           <span class='text-white text-sm sm:text-base font-semibold uppercase tracking-wide group-hover:text-gray-300 transition-colors duration-300'>
             {{- section.settings.guys_button_text -}}
           </span>
         </div>
       </a>
-
       {% comment %} {# For Girls Link #} {% endcomment %}
       <a
         href='{{ section.settings.girls_link }}'
-        class='relative group block w-full md:w-1/2 overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105'
+        class='relative group block w-full md:w-1/2 overflow-hidden rounded-lg shadow-lg transform transition-transform duration-300 hover:scale-105 **h-80**'
       >
         {% if section.settings.girls_image != blank %}
           <img
@@ -45,14 +45,15 @@
             loading='lazy'
             width='800'
             height='450'
-            class='w-full h-auto object-cover'
+            class='w-full **h-full** object-cover'
           >
         {% else %}
-          {% comment %} {# Placeholder image if no image is uploaded #} {% endcomment %}
-          <div class='w-full h-48 bg-gray-200 flex items-center justify-center text-gray-500 text-lg'>No Image</div>
+          <div class='w-full **h-full** bg-gray-200 flex items-center justify-center text-gray-500 text-lg'>
+            No Image
+          </div>
         {% endif %}
 
-        <div class='absolute left-[10%] bottom-[10%] bg-black px-4 py-2 rounded-md'>
+        <div class='absolute left-[10%] bottom-[10%] bg-black px-4 py-2'>
           <span class='text-white text-sm sm:text-base font-semibold uppercase tracking-wide group-hover:text-gray-300 transition-colors duration-300'>
             {{ section.settings.girls_button_text }}
           </span>
