@@ -24,10 +24,30 @@
     "main": {
       "type": "hello-world",
       "settings": {}
+    },
+    "17492927124c96ddf3": {
+      "type": "apps",
+      "blocks": {
+        "diversified_sponsorship_app_rich_text_MtJ96x": {
+          "type": "shopify://apps/diversified-sponsorship-app/blocks/rich-text/a353411c-88f3-4473-ad0d-000d2c57775e",
+          "settings": {
+            "title": "Talk about your brand",
+            "heading_style": "text-3xl lg:text-5xl",
+            "copy": "<p>Use this text to share information about your brand with your customers.</p>",
+            "padding_top": 20,
+            "padding_bottom": 20
+          }
+        }
+      },
+      "block_order": [
+        "diversified_sponsorship_app_rich_text_MtJ96x"
+      ],
+      "settings": {}
     }
   },
   "order": [
     "hero",
-    "main"
+    "main",
+    "17492927124c96ddf3"
   ]
 }
