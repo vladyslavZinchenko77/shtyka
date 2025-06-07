@@ -24,27 +24,10 @@
     "main": {
       "type": "hello-world",
       "settings": {}
-    },
-    "1749284149cb4a27ef": {
-      "type": "apps",
-      "blocks": {
-        "specialized_portfolio_app_star_rating_4xXnBL": {
-          "type": "shopify://apps/specialized-portfolio-app/blocks/star_rating/4f337ee6-84f3-4172-a0e8-f0c9c9c2d42b",
-          "settings": {
-            "product": "",
-            "colour": "#ff0000"
-          }
-        }
-      },
-      "block_order": [
-        "specialized_portfolio_app_star_rating_4xXnBL"
-      ],
-      "settings": {}
     }
   },
   "order": [
     "hero",
-    "main",
-    "1749284149cb4a27ef"
+    "main"
   ]
 }
